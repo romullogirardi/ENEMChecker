@@ -17,6 +17,7 @@ public class AnswersCardReader {
 	private int FIRST_COLUMN_X_POSITION = 10;
 	private int COLUMN_DISTANCE = 5;
 	private int ANSWERS_X_DISTANCE = 5;
+	private int MARKING_DIMENSION = 5;
 	
 	//ATTRIBUTE
 	private String filePath = null;
@@ -31,7 +32,7 @@ public class AnswersCardReader {
 		
 		QuestionOptionLetters selectedOption = QuestionOptionLetters.VAZIA;
 		for(QuestionOptionLetters questionOptionLetter : QuestionOptionLetters.values()) {
-			if(isOptionSelected(questionNumber, questionOptionLetter))
+			if(!questionOptionLetter.equals(QuestionOptionLetters.VAZIA) && isOptionSelected(questionNumber, questionOptionLetter))
 				selectedOption = (selectedOption.equals(QuestionOptionLetters.VAZIA)) ? questionOptionLetter : QuestionOptionLetters.VAZIA;
 		}
 		return selectedOption;
@@ -61,8 +62,7 @@ public class AnswersCardReader {
 				break;
 		}
 		
-		Color color = getPixelColor(getFirstOptionPosition(questionNumber).getX() + (numberOfXJumps * ANSWERS_X_DISTANCE), getFirstOptionPosition(questionNumber).getY());
-		return isSelected(color);
+		return isSelected(getFirstOptionPosition(questionNumber).getX() + (numberOfXJumps * ANSWERS_X_DISTANCE), getFirstOptionPosition(questionNumber).getY());
 	}
 	
 	private AnswersCardPosition getFirstOptionPosition(int questionNumber) {
@@ -107,8 +107,8 @@ public class AnswersCardReader {
 		return new AnswersCardPosition(FIRST_COLUMN_X_POSITION + (numberOfXJumps * COLUMN_DISTANCE), FIRST_ROW_Y_POSITION + (numberOfYJumps * ROW_DISTANCE));
 	}
 	
-	private Color getPixelColor(int x, int y) {
-
+	private boolean isSelected(int x, int y) {
+		
 		File file= new File(filePath);
 		BufferedImage image = null;
 		try {
@@ -116,10 +116,17 @@ public class AnswersCardReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return new Color(image.getRGB(x, y));
+		
+		for(int indexX = (x - MARKING_DIMENSION); indexX <= (indexX + MARKING_DIMENSION); indexX++)
+			if(!isColorAccepted(new Color(image.getRGB(indexX, y))))
+				return false;
+		for(int indexY = (y - MARKING_DIMENSION); indexY <= (indexY + MARKING_DIMENSION); indexY++)
+			if(!isColorAccepted(new Color(image.getRGB(x, indexY))))
+				return false;
+		return true;
 	}
 	
-	private boolean isSelected(Color color) {
+	private boolean isColorAccepted(Color color) {
 		if(color.getRed() > 100 && color.getGreen() > 100 && color.getBlue() > 100)
 			return true;
 		return false;
