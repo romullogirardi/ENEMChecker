@@ -3,6 +3,7 @@ package com.romullogirardi.checker.view;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +20,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import com.romullogirardi.checker.model.AnswersCardReader;
 import com.romullogirardi.checker.model.Enums.Discipline;
 import com.romullogirardi.checker.model.Enums.ForeignLanguage;
 import com.romullogirardi.checker.model.Enums.KnowledgeArea;
@@ -28,6 +31,7 @@ import com.romullogirardi.checker.model.QuestionsChecker;
 public class MainWindow {
 
 	private JFrame frame;
+	private String answersCardAbsolutePath = null;
 	private ArrayList<ButtonGroup> questionRadioButtonsGroups = new ArrayList<ButtonGroup>();
 
 	/**
@@ -73,7 +77,6 @@ public class MainWindow {
 		JTextField nameTextField = new JTextField(40);
 		namePanel.add(nameTextField);
 		contentPanel.add(namePanel);
-		QuestionsChecker.getInstance().setStudentName("Rômullo Girardi Moreira");
 
 		//Initialize student foreign language
 		JPanel languagePanel = new JPanel();
@@ -87,7 +90,53 @@ public class MainWindow {
 		languagePanel.add(optionSpanish);
 		languageRadioButtonsGroup.add(optionSpanish);
 		contentPanel.add(languagePanel);
-		QuestionsChecker.getInstance().setForeignLanguage(ForeignLanguage.SPANISH);
+
+		//Initialize answers card
+		JPanel answersCardPanel = new JPanel();
+		answersCardPanel.add(new JLabel("Cartão resposta - 1° dia (1 a 90):\t"));
+		JTextField answersCardTextField = new JTextField(20);
+		answersCardPanel.add(answersCardTextField);
+		JButton selectCardButton = new JButton("Selecionar cartão");
+		answersCardPanel.add(selectCardButton);
+		selectCardButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				final JFileChooser fc = new JFileChooser();
+				int returnVal = fc.showOpenDialog(contentPanel);
+		        if (returnVal == JFileChooser.APPROVE_OPTION) {
+		            File file = fc.getSelectedFile();
+		            answersCardAbsolutePath = file.getAbsolutePath();
+		            answersCardTextField.setText(file.getName());
+		        }
+			}
+		});
+		JButton loadAnswersButton = new JButton("Carregar respostas");
+		answersCardPanel.add(loadAnswersButton);
+		loadAnswersButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(answersCardAbsolutePath == null)
+					System.out.println("Nenhum cartão resposta foi selecionado");
+				else {
+					AnswersCardReader reader = new AnswersCardReader(answersCardAbsolutePath);
+					for(int index = 1; index <= 90; index++) {
+						QuestionOptionLetters optionSelected = reader.getSelectedOption(index);
+						ButtonGroup questionRadioButtonsGroup = questionRadioButtonsGroups.get(index - 1);
+						Enumeration<AbstractButton> options = questionRadioButtonsGroup.getElements();
+						while(options.hasMoreElements()) {
+							AbstractButton option = options.nextElement();
+							if(optionSelected.equals(QuestionOptionLetters.VAZIA))
+								option.setSelected(false);
+							else if(optionSelected.toString().equals(option.getText()))
+								option.setSelected(true);
+						}
+					}
+				}
+			}
+		});
+		contentPanel.add(answersCardPanel);
 
 		//Initialize selected options
 		final List<QuestionOptionLetters> selectedOptions = new ArrayList<QuestionOptionLetters>();
