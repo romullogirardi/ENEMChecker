@@ -21,8 +21,8 @@ import com.romullogirardi.checker.model.Enums.KnowledgeArea;
 public class PDFGenerator {
  
 	//CONSTANTS
-	public final String PDF_FILE_NAME = "/home/fmce779/GIRARDI/java/workspace_jse_pessoal/ENEMChecker/generated_files/generated_file.pdf";
-	private final String MAP_IMAGE_FILE_NAME = "/home/fmce779/GIRARDI/java/workspace_jse_pessoal/ENEMChecker/assets/logo_map.jpg";
+	public final String PDF_FILE_NAME = "C:\\Users\\Romullo Girardi\\Documents\\RÔMULLO\\workspace_jse\\ENEMChecker\\generated_files\\generated_file.pdf";
+	private final String MAP_IMAGE_FILE_NAME = "C:\\Users\\Romullo Girardi\\Documents\\RÔMULLO\\workspace_jse\\ENEMChecker\\assets\\logo_map.jpg";
 	private final int NUMBER_OF_COLUMNS_CELLS = 15;
 	private final int CELL_WIDTH = 35;
 	private final int CELL_HEIGHT = 15;
