@@ -21,8 +21,10 @@ import com.romullogirardi.checker.model.Enums.KnowledgeArea;
 public class PDFGenerator {
  
 	//CONSTANTS
-	public final String PDF_FILE_NAME = "C:\\Users\\Romullo Girardi\\Documents\\RÔMULLO\\workspace_jse\\ENEMChecker\\generated_files\\generated_file.pdf";
-	private final String MAP_IMAGE_FILE_NAME = "C:\\Users\\Romullo Girardi\\Documents\\RÔMULLO\\workspace_jse\\ENEMChecker\\assets\\logo_map.jpg";
+//	public final String PDF_FILE_NAME = "C:\\Users\\Romullo Girardi\\Documents\\RÔMULLO\\workspace_jse\\ENEMChecker\\generated_files\\generated_file.pdf";
+//	private final String MAP_IMAGE_FILE_NAME = "C:\\Users\\Romullo Girardi\\Documents\\RÔMULLO\\workspace_jse\\ENEMChecker\\assets\\logo_map.jpg";
+	public final String PDF_FILE_NAME = "/home/fmce779/GIRARDI/java/workspace_jse_pessoal/ENEMChecker/generated_files/generated_file.pdf";
+	private final String MAP_IMAGE_FILE_NAME = "/home/fmce779/GIRARDI/java/workspace_jse_pessoal/ENEMChecker/assets/logo_map.jpg";
 	private final int NUMBER_OF_COLUMNS_CELLS = 15;
 	private final int CELL_WIDTH = 35;
 	private final int CELL_HEIGHT = 15;
@@ -53,7 +55,7 @@ public class PDFGenerator {
         
 		//Adicionar o título (TODO: Centralizar)
 		document.add(new Paragraph(" "));
-		Paragraph title = new Paragraph("INTENSIVO ENEM 2016 - RESULTADO DO 1º SIMULADO", new Font(FontFamily.TIMES_ROMAN, TITLE_FONT_SIZE, 1, BaseColor.BLACK));
+		Paragraph title = new Paragraph("INTENSIVO ENEM 2016 - RESULTADO DO 2º SIMULADO", new Font(FontFamily.TIMES_ROMAN, TITLE_FONT_SIZE, 1, BaseColor.BLACK));
 		title.setAlignment(Element.ALIGN_CENTER);
 		document.add(title);
 		document.add(new Paragraph(" "));

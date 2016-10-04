@@ -31,7 +31,8 @@ import com.romullogirardi.checker.model.QuestionsChecker;
 public class MainWindow {
 
 	private JFrame frame;
-	private String answersCardAbsolutePath = null;
+	private String answersCardAbsolutePath1 = null;
+	private String answersCardAbsolutePath2 = null;
 	private ArrayList<ButtonGroup> questionRadioButtonsGroups = new ArrayList<ButtonGroup>();
 
 	/**
@@ -91,14 +92,14 @@ public class MainWindow {
 		languageRadioButtonsGroup.add(optionSpanish);
 		contentPanel.add(languagePanel);
 
-		//Initialize answers card
-		JPanel answersCardPanel = new JPanel();
-		answersCardPanel.add(new JLabel("Cartão resposta - 1° dia (1 a 90):\t"));
-		JTextField answersCardTextField = new JTextField(20);
-		answersCardPanel.add(answersCardTextField);
-		JButton selectCardButton = new JButton("Selecionar cartão");
-		answersCardPanel.add(selectCardButton);
-		selectCardButton.addActionListener(new ActionListener() {
+		//Initialize first day answers card
+		JPanel answersCardPanel1 = new JPanel();
+		answersCardPanel1.add(new JLabel("Cartão resposta - 1° dia (1 a 90):\t"));
+		JTextField answersCardTextField1 = new JTextField(20);
+		answersCardPanel1.add(answersCardTextField1);
+		JButton selectCardButton1 = new JButton("Selecionar cartão");
+		answersCardPanel1.add(selectCardButton1);
+		selectCardButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -106,21 +107,22 @@ public class MainWindow {
 				int returnVal = fc.showOpenDialog(contentPanel);
 		        if (returnVal == JFileChooser.APPROVE_OPTION) {
 		            File file = fc.getSelectedFile();
-		            answersCardAbsolutePath = file.getAbsolutePath();
-		            answersCardTextField.setText(file.getName());
+		            answersCardAbsolutePath1 = file.getAbsolutePath();
+		            answersCardTextField1.setText(file.getName());
 		        }
 			}
 		});
-		JButton loadAnswersButton = new JButton("Carregar respostas");
-		answersCardPanel.add(loadAnswersButton);
-		loadAnswersButton.addActionListener(new ActionListener() {
+		
+		JButton loadAnswersButton1 = new JButton("Carregar respostas");
+		answersCardPanel1.add(loadAnswersButton1);
+		loadAnswersButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(answersCardAbsolutePath == null)
+				if(answersCardAbsolutePath1 == null)
 					System.out.println("Nenhum cartão resposta foi selecionado");
 				else {
-					AnswersCardReader reader = new AnswersCardReader(answersCardAbsolutePath);
+					AnswersCardReader reader = new AnswersCardReader(answersCardAbsolutePath1);
 					for(int index = 1; index <= 90; index++) {
 						QuestionOptionLetters optionSelected = reader.getSelectedOption(index);
 						ButtonGroup questionRadioButtonsGroup = questionRadioButtonsGroups.get(index - 1);
@@ -136,7 +138,55 @@ public class MainWindow {
 				}
 			}
 		});
-		contentPanel.add(answersCardPanel);
+		contentPanel.add(answersCardPanel1);
+
+		//Initialize second day answers card
+		JPanel answersCardPanel2 = new JPanel();
+		answersCardPanel2.add(new JLabel("Cartão resposta - 2° dia (91 a 180):\t"));
+		JTextField answersCardTextField2 = new JTextField(20);
+		answersCardPanel2.add(answersCardTextField2);
+		JButton selectCardButton2 = new JButton("Selecionar cartão");
+		answersCardPanel2.add(selectCardButton2);
+		selectCardButton2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				final JFileChooser fc = new JFileChooser();
+				int returnVal = fc.showOpenDialog(contentPanel);
+		        if (returnVal == JFileChooser.APPROVE_OPTION) {
+		            File file = fc.getSelectedFile();
+		            answersCardAbsolutePath2 = file.getAbsolutePath();
+		            answersCardTextField2.setText(file.getName());
+		        }
+			}
+		});
+		
+		JButton loadAnswersButton2 = new JButton("Carregar respostas");
+		answersCardPanel2.add(loadAnswersButton2);
+		loadAnswersButton2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(answersCardAbsolutePath2 == null)
+					System.out.println("Nenhum cartão resposta foi selecionado");
+				else {
+					AnswersCardReader reader = new AnswersCardReader(answersCardAbsolutePath2);
+					for(int index = 91; index <= 180; index++) {
+						QuestionOptionLetters optionSelected = reader.getSelectedOption(index);
+						ButtonGroup questionRadioButtonsGroup = questionRadioButtonsGroups.get(index - 1);
+						Enumeration<AbstractButton> options = questionRadioButtonsGroup.getElements();
+						while(options.hasMoreElements()) {
+							AbstractButton option = options.nextElement();
+							if(optionSelected.equals(QuestionOptionLetters.VAZIA))
+								option.setSelected(false);
+							else if(optionSelected.toString().equals(option.getText()))
+								option.setSelected(true);
+						}
+					}
+				}
+			}
+		});
+		contentPanel.add(answersCardPanel2);
 
 		//Initialize selected options
 		final List<QuestionOptionLetters> selectedOptions = new ArrayList<QuestionOptionLetters>();
