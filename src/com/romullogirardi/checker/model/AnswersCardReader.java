@@ -12,12 +12,13 @@ import com.romullogirardi.checker.model.Enums.QuestionOptionLetters;
 public class AnswersCardReader {
 
 	//CONSTANTS
-	private int FIRST_ROW_Y_POSITION = 25;
-	private int ROW_DISTANCE = 5;
-	private int FIRST_COLUMN_X_POSITION = 10;
-	private int COLUMN_DISTANCE = 5;
-	private int ANSWERS_X_DISTANCE = 5;
-	private int MARKING_DIMENSION = 5;
+	private int FIRST_ROW_Y_POSITION = 160;
+	private int ROW_DISTANCE = 22;
+	private int FIRST_COLUMN_X_POSITION = 63;
+	private int COLUMN_DISTANCE = 120;
+	private int ANSWERS_X_DISTANCE = 20;
+	private int MARKING_DIMENSION = 2;
+	private int COLOR_REFERENCE = 100;
 	
 	//ATTRIBUTE
 	private String filePath = null;
@@ -35,6 +36,7 @@ public class AnswersCardReader {
 			if(!questionOptionLetter.equals(QuestionOptionLetters.VAZIA) && isOptionSelected(questionNumber, questionOptionLetter))
 				selectedOption = (selectedOption.equals(QuestionOptionLetters.VAZIA)) ? questionOptionLetter : QuestionOptionLetters.VAZIA;
 		}
+		System.out.println(questionNumber + " - " + selectedOption);
 		return selectedOption;
 	}
 	
@@ -61,8 +63,12 @@ public class AnswersCardReader {
 			default:
 				break;
 		}
-		
-		return isSelected(getFirstOptionPosition(questionNumber).getX() + (numberOfXJumps * ANSWERS_X_DISTANCE), getFirstOptionPosition(questionNumber).getY());
+
+		System.out.println(questionNumber + "-" + questionOptionLetter + "(" + (getFirstOptionPosition(questionNumber).getX() + (numberOfXJumps * ANSWERS_X_DISTANCE)) + 
+				", " + getFirstOptionPosition(questionNumber).getY() + ") - " +
+				(((isSelected(getFirstOptionPosition(questionNumber).getX() + (numberOfXJumps * ANSWERS_X_DISTANCE), getFirstOptionPosition(questionNumber).getY())) ? 
+				"MARCADO" : "DESMARCADO")));
+		return isSelected((getFirstOptionPosition(questionNumber).getX() + (numberOfXJumps * ANSWERS_X_DISTANCE)), getFirstOptionPosition(questionNumber).getY());
 	}
 	
 	private AnswersCardPosition getFirstOptionPosition(int questionNumber) {
@@ -117,17 +123,21 @@ public class AnswersCardReader {
 			e.printStackTrace();
 		}
 		
-		for(int indexX = (x - MARKING_DIMENSION); indexX <= (indexX + MARKING_DIMENSION); indexX++)
+		for(int indexX = (x - MARKING_DIMENSION); indexX <= (x + MARKING_DIMENSION); indexX++) {
+			System.out.println("Testou cor em (" + indexX + ", " + y + ")");
 			if(!isColorAccepted(new Color(image.getRGB(indexX, y))))
 				return false;
-		for(int indexY = (y - MARKING_DIMENSION); indexY <= (indexY + MARKING_DIMENSION); indexY++)
+		}
+		for(int indexY = (y - MARKING_DIMENSION); indexY <= (y + MARKING_DIMENSION); indexY++) {
+			System.out.println("Testou cor em (" + x + ", " + indexY + ")");
 			if(!isColorAccepted(new Color(image.getRGB(x, indexY))))
 				return false;
+		}
 		return true;
 	}
 	
 	private boolean isColorAccepted(Color color) {
-		if(color.getRed() > 100 && color.getGreen() > 100 && color.getBlue() > 100)
+		if(color.getRed() < COLOR_REFERENCE || color.getGreen() < COLOR_REFERENCE || color.getBlue() < COLOR_REFERENCE)
 			return true;
 		return false;
 	}
