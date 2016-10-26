@@ -12,13 +12,14 @@ import com.romullogirardi.checker.model.Enums.QuestionOptionLetters;
 public class AnswersCardReader {
 
 	//CONSTANTS
-	private int FIRST_ROW_Y_POSITION = 160;
-	private int ROW_DISTANCE = 22;
-	private int FIRST_COLUMN_X_POSITION = 63;
-	private int COLUMN_DISTANCE = 120;
-	private int ANSWERS_X_DISTANCE = 20;
-	private int MARKING_DIMENSION = 2;
-	private int COLOR_REFERENCE = 100;
+	private int FIRST_ROW_Y_POSITION = 88;
+	private float ROW_DISTANCE = 31.5f;
+	private int FIRST_COLUMN_X_POSITION = 65;
+	private int COLUMN_DISTANCE = 220;
+	private int COLUMN_MIDDLE_GAP = 14;
+	private int ANSWERS_X_DISTANCE = 34;
+	private int MARKING_DIMENSION = 4;
+	private int COLOR_REFERENCE = 180;
 	
 	//ATTRIBUTE
 	private String filePath = null;
@@ -75,6 +76,7 @@ public class AnswersCardReader {
 
 		int numberOfXJumps = 0;
 		int numberOfYJumps = 0;
+		int columnMiddleGap = 0;
 		if((1 <= questionNumber && questionNumber <= 15) || (91 <= questionNumber && questionNumber <= 105)) {
 			if(91 <= questionNumber && questionNumber <= 105)
 				questionNumber -= 90;
@@ -97,20 +99,23 @@ public class AnswersCardReader {
 				questionNumber -= 90;
 			numberOfXJumps = 3;
 			numberOfYJumps = questionNumber - 46;
+			columnMiddleGap = COLUMN_MIDDLE_GAP;
 		}
 		else if((61 <= questionNumber && questionNumber <= 75) || (151 <= questionNumber && questionNumber <= 165)) {
 			if(151 <= questionNumber && questionNumber <= 165)
 				questionNumber -= 90;
 			numberOfXJumps = 4;
 			numberOfYJumps = questionNumber - 61;
+			columnMiddleGap = COLUMN_MIDDLE_GAP;
 		}
 		else if((76 <= questionNumber && questionNumber <= 90) || (166 <= questionNumber && questionNumber <= 180)) {
 			if(166 <= questionNumber && questionNumber <= 180)
 				questionNumber -= 90;
 			numberOfXJumps = 5;
 			numberOfYJumps = questionNumber - 76;
+			columnMiddleGap = COLUMN_MIDDLE_GAP;
 		}
-		return new AnswersCardPosition(FIRST_COLUMN_X_POSITION + (numberOfXJumps * COLUMN_DISTANCE), FIRST_ROW_Y_POSITION + (numberOfYJumps * ROW_DISTANCE));
+		return new AnswersCardPosition(FIRST_COLUMN_X_POSITION + (numberOfXJumps * COLUMN_DISTANCE) + columnMiddleGap, Math.round(FIRST_ROW_Y_POSITION + (numberOfYJumps * ROW_DISTANCE)));
 	}
 	
 	private boolean isSelected(int x, int y) {
@@ -123,23 +128,24 @@ public class AnswersCardReader {
 			e.printStackTrace();
 		}
 		
+		float grayScaleSum = 0;
+		int numberOfPoints = 0;
 		for(int indexX = (x - MARKING_DIMENSION); indexX <= (x + MARKING_DIMENSION); indexX++) {
-			System.out.println("Testou cor em (" + indexX + ", " + y + ")");
-			if(!isColorAccepted(new Color(image.getRGB(indexX, y))))
-				return false;
+			grayScaleSum += getGrayScaleFromColor(new Color(image.getRGB(indexX, y)));
+			numberOfPoints++;
 		}
 		for(int indexY = (y - MARKING_DIMENSION); indexY <= (y + MARKING_DIMENSION); indexY++) {
-			System.out.println("Testou cor em (" + x + ", " + indexY + ")");
-			if(!isColorAccepted(new Color(image.getRGB(x, indexY))))
-				return false;
+			grayScaleSum += getGrayScaleFromColor(new Color(image.getRGB(x, indexY)));
+			numberOfPoints++;
 		}
-		return true;
+		
+		int mediumGrayScale = Math.round(grayScaleSum / numberOfPoints);
+//		System.out.println(mediumGrayScale);
+		return (mediumGrayScale < COLOR_REFERENCE);
 	}
 	
-	private boolean isColorAccepted(Color color) {
-		if(color.getRed() < COLOR_REFERENCE || color.getGreen() < COLOR_REFERENCE || color.getBlue() < COLOR_REFERENCE)
-			return true;
-		return false;
+	private float getGrayScaleFromColor(Color color) {
+		return (color.getRed() + color.getGreen() + color.getBlue()) / 3;
 	}
 	
 	//INNER CLASS
