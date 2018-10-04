@@ -12,21 +12,35 @@ import com.romullogirardi.checker.model.Enums.QuestionOptionLetters;
 public class AnswersCardReader {
 
 	//CONSTANTS
-	private int FIRST_ROW_Y_POSITION_1 = 1612;
-	private float ROW_DISTANCE_1 = 31.5f;
-	private int FIRST_COLUMN_X_POSITION_1 = 215;
-	private int COLUMN_DISTANCE_1 = 220;
-	private int ANSWERS_X_DISTANCE_1 = 33;
-	private int COLUMN_MIDDLE_GAP_1 = 14;
+//	private int FIRST_ROW_Y_POSITION_1 = 1612;
+//	private float ROW_DISTANCE_1 = 31.5f;
+//	private int FIRST_COLUMN_X_POSITION_1 = 215;
+//	private int COLUMN_DISTANCE_1 = 220;
+//	private int ANSWERS_X_DISTANCE_1 = 33;
+//	private int COLUMN_MIDDLE_GAP_1 = 14;
+	private int FIRST_ROW_Y_POSITION_1 = 2390;
+	private float ROW_DISTANCE_1 = 46f;
+	private int FIRST_COLUMN_X_POSITION_1 = 342;
+	private int COLUMN_DISTANCE_1 = 320;
+	private int ANSWERS_X_DISTANCE_1 = 50;
+	private int COLUMN_MIDDLE_GAP_1 = 19;
 	
-	private int FIRST_ROW_Y_POSITION_2 = 1616;
-	private float ROW_DISTANCE_2 = 31.8f;
-	private int FIRST_COLUMN_X_POSITION_2 = 216;
-	private int COLUMN_DISTANCE_2 = 223;
-	private int ANSWERS_X_DISTANCE_2 = 34;
-	private int COLUMN_MIDDLE_GAP_2 = 12;
+//	private int FIRST_ROW_Y_POSITION_2 = 1616;
+//	private float ROW_DISTANCE_2 = 31.8f;
+//	private int FIRST_COLUMN_X_POSITION_2 = 216;
+//	private int COLUMN_DISTANCE_2 = 223;
+//	private int ANSWERS_X_DISTANCE_2 = 34;
+//	private int COLUMN_MIDDLE_GAP_2 = 12;
+	private int FIRST_ROW_Y_POSITION_2 = 2405;
+	private float ROW_DISTANCE_2 = 46f;
+	private int FIRST_COLUMN_X_POSITION_2 = 353;
+	private int COLUMN_DISTANCE_2 = 323;
+	private int ANSWERS_X_DISTANCE_2 = 49;
+	private int COLUMN_MIDDLE_GAP_2 = 19;
 	
-	private int MARKING_DIMENSION = 5;
+//	private int MARKING_DIMENSION = 5;
+//	private int COLOR_REFERENCE = 180;
+	private int MARKING_DIMENSION = 10;
 	private int COLOR_REFERENCE = 180;
 	
 	//ATTRIBUTE

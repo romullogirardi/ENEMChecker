@@ -21,10 +21,10 @@ import com.romullogirardi.checker.model.Enums.KnowledgeArea;
 public class PDFGenerator {
  
 	//CONSTANTS
-//	public final String PDF_FILE_NAME = "C:\\Users\\Romullo Girardi\\Documents\\RÔMULLO\\workspace_jse\\ENEMChecker\\generated_files\\generated_file.pdf";
-//	private final String MAP_IMAGE_FILE_NAME = "C:\\Users\\Romullo Girardi\\Documents\\RÔMULLO\\workspace_jse\\ENEMChecker\\assets\\logo_map.jpg";
-	public final String PDF_FILE_NAME = "/home/fmce779/GIRARDI/java/workspace_jse_pessoal/ENEMChecker/generated_files/generated_file.pdf";
-	private final String MAP_IMAGE_FILE_NAME = "/home/fmce779/GIRARDI/java/workspace_jse_pessoal/ENEMChecker/assets/logo_map.jpg";
+	public final String PDF_FILE_NAME = "D:\\ROMULLO\\WORKSPACES\\workspace_jse\\ENEMChecker\\generated_files\\generated_file.pdf";
+	private final String MAP_IMAGE_FILE_NAME = "D:\\ROMULLO\\WORKSPACES\\workspace_jse\\ENEMChecker\\assets\\logo_map.jpg";
+//	public final String PDF_FILE_NAME = "/home/fmce779/GIRARDI/java/workspace_jse_pessoal/ENEMChecker/generated_files/generated_file.pdf";
+//	private final String MAP_IMAGE_FILE_NAME = "/home/fmce779/GIRARDI/java/workspace_jse_pessoal/ENEMChecker/assets/logo_map.jpg";
 	private final int NUMBER_OF_COLUMNS_CELLS = 15;
 	private final int CELL_WIDTH = 35;
 	private final int CELL_HEIGHT = 15;
@@ -55,7 +55,7 @@ public class PDFGenerator {
         
 		//Adicionar o título (TODO: Centralizar)
 		document.add(new Paragraph(" "));
-		Paragraph title = new Paragraph("INTENSIVO ENEM 2016 - RESULTADO DO 2º SIMULADO", new Font(FontFamily.TIMES_ROMAN, TITLE_FONT_SIZE, 1, BaseColor.BLACK));
+		Paragraph title = new Paragraph("INTENSIVO ENEM 2018 - RESULTADO DO 1º SIMULADO", new Font(FontFamily.TIMES_ROMAN, TITLE_FONT_SIZE, 1, BaseColor.BLACK));
 		title.setAlignment(Element.ALIGN_CENTER);
 		document.add(title);
 		document.add(new Paragraph(" "));
@@ -91,9 +91,9 @@ public class PDFGenerator {
 		
 		//Adicionar o resultado
 		document.add(new Paragraph(" "));
+		document.add(new Paragraph("Linguagens e suas Tecnologias: " + String.format("%.2f",QuestionsChecker.getInstance().getPoints(KnowledgeArea.LANGUAGES)) + " pontos", new Font(FontFamily.TIMES_ROMAN, DEFAULT_FONT_SIZE, 0, BaseColor.BLACK)));
 		document.add(new Paragraph("Ciências Humanas e suas Tecnologias: " + String.format("%.2f", QuestionsChecker.getInstance().getPoints(KnowledgeArea.HUMAN_SCIENCE)) + " pontos", new Font(FontFamily.TIMES_ROMAN, DEFAULT_FONT_SIZE, 0, BaseColor.BLACK)));
 		document.add(new Paragraph("Ciências da Natureza e suas Tecnologias: " + String.format("%.2f",QuestionsChecker.getInstance().getPoints(KnowledgeArea.NATURAL_SCIENCE)) + " pontos", new Font(FontFamily.TIMES_ROMAN, DEFAULT_FONT_SIZE, 0, BaseColor.BLACK)));
-		document.add(new Paragraph("Linguagens e suas Tecnologias: " + String.format("%.2f",QuestionsChecker.getInstance().getPoints(KnowledgeArea.LANGUAGES)) + " pontos", new Font(FontFamily.TIMES_ROMAN, DEFAULT_FONT_SIZE, 0, BaseColor.BLACK)));
 		document.add(new Paragraph("Matemática e suas Tecnologias: " + String.format("%.2f",QuestionsChecker.getInstance().getPoints(KnowledgeArea.MATHEMATICS)) + " pontos", new Font(FontFamily.TIMES_ROMAN, DEFAULT_FONT_SIZE, 0, BaseColor.BLACK)));
 		document.add(new Paragraph("MÉDIA DAS QUESTÕES OBJETIVAS: " + String.format("%.2f", QuestionsChecker.getInstance().getPointsAverage()) + " pontos", new Font(FontFamily.TIMES_ROMAN, DEFAULT_FONT_SIZE, 1, BaseColor.BLACK)));
 	}
