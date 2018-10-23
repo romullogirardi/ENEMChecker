@@ -55,7 +55,7 @@ public class PDFGenerator {
         
 		//Adicionar o título (TODO: Centralizar)
 		document.add(new Paragraph(" "));
-		Paragraph title = new Paragraph("INTENSIVO ENEM 2018 - RESULTADO DO 1º SIMULADO", new Font(FontFamily.TIMES_ROMAN, TITLE_FONT_SIZE, 1, BaseColor.BLACK));
+		Paragraph title = new Paragraph("INTENSIVO ENEM 2018 - RESULTADO DO 2º SIMULADO", new Font(FontFamily.TIMES_ROMAN, TITLE_FONT_SIZE, 1, BaseColor.BLACK));
 		title.setAlignment(Element.ALIGN_CENTER);
 		document.add(title);
 		document.add(new Paragraph(" "));
