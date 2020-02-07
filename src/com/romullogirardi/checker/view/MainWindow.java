@@ -286,7 +286,7 @@ public class MainWindow {
 		
 		List<Question> questions = new ArrayList<Question>();
 		
-//		///////////////////////////////////////////////////// 1º SIMULADO ////////////////////////////////////////////////
+		///////////////////////////////////////////////////// 1º SIMULADO ////////////////////////////////////////////////
 //		//Linguagens e suas Tecnologias - 1 a 45
 //		//Inglês
 //		if(QuestionsChecker.getInstance().getForeignLanguage().equals(ForeignLanguage.ENGLISH)) {
@@ -361,20 +361,20 @@ public class MainWindow {
 //		/*59*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.A));
 //		/*60*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.D));
 //		/*61*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
-//		/*62*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
-//		/*63*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
-//		/*64*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.D));
-//		/*65*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
-//		/*66*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.A));
-//		/*67*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
-//		/*68*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.B));
-//		/*69*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.E));
-//		/*70*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.D));
-//		/*71*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.B));
-//		/*72*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.A));
-//		/*73*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.B));
-//		/*74*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
-//		/*75*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.D));
+//		/*62*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.E));
+//		/*63*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.D));
+//		/*64*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.E));
+//		/*65*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.E));
+//		/*66*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
+//		/*67*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.B));
+//		/*68*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.A));
+//		/*69*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
+//		/*70*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.A));
+//		/*71*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.A));
+//		/*72*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.B));
+//		/*73*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.E));
+//		/*74*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.D));
+//		/*75*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
 //		/*76*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.D));
 //		/*77*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.C));
 //		/*78*/questions.add(new Question(KnowledgeArea.HUMAN_SCIENCE, Discipline.HUMAN_SCIENCE, QuestionOptionLetters.D));
@@ -467,21 +467,21 @@ public class MainWindow {
 //		/*163*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
 //		/*164*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
 //		/*165*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
-//		/*166*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
-//		/*167*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
-//		/*168*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.B));
-//		/*169*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.B));
-//		/*170*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
-//		/*171*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
-//		/*172*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.C));
-//		/*173*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
-//		/*174*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
-//		/*175*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
-//		/*176*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
-//		/*177*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
-//		/*178*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
-//		/*179*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.B));
-//		/*180*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.C));
+//		/*166*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.B));
+//		/*167*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.B));
+//		/*168*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
+//		/*169*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.C));
+//		/*170*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
+//		/*171*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
+//		/*172*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
+//		/*173*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
+//		/*174*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.C));
+//		/*175*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
+//		/*176*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
+//		/*177*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
+//		/*178*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
+//		/*179*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
+//		/*180*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
 
 		///////////////////////////////////////////////////// 2º SIMULADO ////////////////////////////////////////////////
 		//Linguagens e suas Tecnologias - 1 a 45
@@ -666,7 +666,7 @@ public class MainWindow {
 		/*165*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
 		/*166*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
 		/*167*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.C));
-		/*168*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
+		/*168*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
 		/*169*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
 		/*170*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
 		/*171*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.B));
@@ -674,9 +674,9 @@ public class MainWindow {
 		/*173*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
 		/*174*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
 		/*175*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.B));
-		/*176*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.C));
-		/*177*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
-		/*178*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
+		/*176*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.D));
+		/*177*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.B));
+		/*178*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
 		/*179*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.E));
 		/*180*/questions.add(new Question(KnowledgeArea.MATHEMATICS, Discipline.MATHEMATICS, QuestionOptionLetters.A));
 

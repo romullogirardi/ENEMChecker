@@ -12,19 +12,19 @@ import com.romullogirardi.checker.model.Enums.QuestionOptionLetters;
 public class AnswersCardReader {
 
 	//CONSTANTS
-	private int FIRST_ROW_Y_POSITION_1 = 2481;
-	private float ROW_DISTANCE_1 = 48.6786f;
-	private int FIRST_COLUMN_X_POSITION_1 = 343;
-	private int COLUMN_DISTANCE_1 = 331;
-	private int ANSWERS_X_DISTANCE_1 = 50;
-	private int COLUMN_MIDDLE_GAP_1 = 21;
+	private int FIRST_ROW_Y_POSITION_1 = 2479;
+	private float ROW_DISTANCE_1 = 47.785714f;
+	private int FIRST_COLUMN_X_POSITION_1 = 344;
+	private int COLUMN_DISTANCE_1 = 330;
+	private int ANSWERS_X_DISTANCE_1 = 49;
+	private int COLUMN_MIDDLE_GAP_1 = 26;
 	
-	private int FIRST_ROW_Y_POSITION_2 = 2459;
-	private float ROW_DISTANCE_2 = 47.1429f;
-	private int FIRST_COLUMN_X_POSITION_2 = 331;
-	private int COLUMN_DISTANCE_2 = 329;
-	private int ANSWERS_X_DISTANCE_2 = 50;
-	private int COLUMN_MIDDLE_GAP_2 = 16;
+	private int FIRST_ROW_Y_POSITION_2 = 2457;
+	private float ROW_DISTANCE_2 = 47.142857f;
+	private int FIRST_COLUMN_X_POSITION_2 = 340;
+	private int COLUMN_DISTANCE_2 = 328;
+	private int ANSWERS_X_DISTANCE_2 = 52;
+	private int COLUMN_MIDDLE_GAP_2 = 19;
 	
 	private int MARKING_DIMENSION = 10;
 	private int COLOR_REFERENCE = 180;
@@ -148,10 +148,12 @@ public class AnswersCardReader {
 		int numberOfPoints = 0;
 		for(int indexX = (x - MARKING_DIMENSION); indexX <= (x + MARKING_DIMENSION); indexX++) {
 			grayScaleSum += getGrayScaleFromColor(new Color(image.getRGB(indexX, y)));
+			System.out.println("getRGB - " + indexX + "x" + y);
 			numberOfPoints++;
 		}
 		for(int indexY = (y - MARKING_DIMENSION); indexY <= (y + MARKING_DIMENSION); indexY++) {
 			grayScaleSum += getGrayScaleFromColor(new Color(image.getRGB(x, indexY)));
+			System.out.println("getRGB - " + x + "x" + indexY);
 			numberOfPoints++;
 		}
 		
